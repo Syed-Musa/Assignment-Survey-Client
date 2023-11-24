@@ -1,11 +1,13 @@
 import Banner from "./Banner/Banner";
-import FeaturedSurvey from "./FeaturedSurvey/FeaturedSurvey";
+import FSurvey from "./FeaturedSurvey/FSurvey";
+import LSurvey from "./LatestSurvey/LSurvey";
 
 const Homepage = () => {
     return (
         <div>
             <Banner></Banner>
-            <FeaturedSurvey></FeaturedSurvey>
+            <FSurvey></FSurvey>
+            <LSurvey></LSurvey>
         </div>
     );
 };
