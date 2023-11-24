@@ -4,14 +4,14 @@ const Navbar = () => {
 
     const navItems = <>
     <li className="font-bold uppercase italic"><Link to='/'>Home</Link></li>
-    <li className="font-bold uppercase italic"><Link to='/'>Surveys</Link></li>
+    <li className="font-bold uppercase italic"><Link to='/survey'>Surveys</Link></li>
     <li className="font-bold uppercase italic"><Link to='/'>Survey Details</Link></li>
     <li className="font-bold uppercase italic"><Link to='/'>Pricing</Link></li>
     </>
     
   return (
     <div>
-      <div className="navbar fixed z-10 bg-opacity-25 bg-black max-w-screen-xl text-white">
+      <div className="navbar bg-orange-600 max-w-screen-xl text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
