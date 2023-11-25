@@ -4,6 +4,7 @@ import Homepage from "../Pages/Homepage/Homepage";
 import Survey from "../Pages/Survey/Survey";
 import SignUp from "../Pages/SignUpSignIn/SignUp";
 import SignIn from "../Pages/SignUpSignIn/SignIn";
+import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
         {
             path: '/survey',
             element: <Survey></Survey>
+        },
+        {
+            path: '/surveyDetails',
+            element: <SurveyDetails></SurveyDetails>
         },
         {
             path: '/signIn',

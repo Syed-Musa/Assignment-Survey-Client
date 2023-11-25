@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import axios from "axios";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import ExtraSignIn from "./ExtraSignIn";
+import { Helmet } from "react-helmet-async";
 
 const SignIn = () => {
   const {signIn} = useContext(AuthContext);
@@ -37,7 +38,7 @@ const SignIn = () => {
         const user = {email};
         setSuccess('Created message Successfully');
   
-        axios.post('https://assignment-server-side-xi.vercel.app/jwt', user, {withCredentials: true})
+        axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
         .then(res => {
           console.log(res.data)
           if(res.data.success){
@@ -53,6 +54,9 @@ const SignIn = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SURVEYPOLLING | SIGN IN</title>
+      </Helmet>
       <div className="hero bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center">

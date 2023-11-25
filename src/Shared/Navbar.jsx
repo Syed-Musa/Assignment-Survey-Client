@@ -14,8 +14,9 @@ const Navbar = () => {
     const navItems = <>
     <li className="font-bold uppercase italic"><Link to='/'>Home</Link></li>
     <li className="font-bold uppercase italic"><Link to='/survey'>Surveys</Link></li>
-    <li className="font-bold uppercase italic"><Link to='/'>Survey Details</Link></li>
+    {/* <li className="font-bold uppercase italic"><Link to='/'>Survey Details</Link></li> */}
     <li className="font-bold uppercase italic"><Link to='/'>Pricing</Link></li>
+
     </>
     
   return (

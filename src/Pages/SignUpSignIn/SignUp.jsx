@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useState, useContext } from "react";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const {createUser} = useContext(AuthContext);
@@ -40,6 +41,9 @@ const SignUp = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SURVEYPOLLING | SIGN UP</title>
+      </Helmet>
       <div className="hero bg-base-200">
         <div className="hero-content flex-col">
             <div className="text-center">
