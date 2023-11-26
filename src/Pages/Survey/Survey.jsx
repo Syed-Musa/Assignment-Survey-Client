@@ -4,6 +4,7 @@ import SurveyCard from "./SurveyCard";
 const Survey = () => {
 
     const [survey, setSurvey] = useState([]);
+    console.log(survey)
 
     useEffect(()=>{
         fetch('http://localhost:5000/survey')

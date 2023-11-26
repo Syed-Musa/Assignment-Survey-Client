@@ -5,6 +5,8 @@ import Survey from "../Pages/Survey/Survey";
 import SignUp from "../Pages/SignUpSignIn/SignUp";
 import SignIn from "../Pages/SignUpSignIn/SignIn";
 import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
+import Dashboard from "../Layout/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -17,11 +19,12 @@ export const router = createBrowserRouter([
         },
         {
             path: '/survey',
-            element: <Survey></Survey>
+            element: <Survey></Survey>,
         },
         {
-            path: '/surveyDetails',
-            element: <SurveyDetails></SurveyDetails>
+            path: '/survey/:id',
+            element: <SurveyDetails></SurveyDetails>,
+            loader: ({params})=> fetch(`http://localhost:5000/survey/${params.id}`)
         },
         {
             path: '/signIn',
@@ -32,5 +35,10 @@ export const router = createBrowserRouter([
             element: <SignUp></SignUp>
         }
       ]
+    },
+
+    {
+        path: "/Dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
     }
 ]);
