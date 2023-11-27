@@ -7,6 +7,7 @@ import SignIn from "../Pages/SignUpSignIn/SignIn";
 import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../DashBoardPage/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
             loader: ({params})=> fetch(`http://localhost:5000/survey/${params.id}`)
         },
         {
-            path: '/signIn',
+            path: '/login',
             element: <SignIn></SignIn>
         },
         {
@@ -39,6 +40,12 @@ export const router = createBrowserRouter([
 
     {
         path: "/Dashboard",
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: 'users',
+                element: <AllUsers></AllUsers>
+            }
+        ]
     }
 ]);

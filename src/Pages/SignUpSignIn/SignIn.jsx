@@ -5,6 +5,7 @@ import axios from "axios";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import ExtraSignIn from "./ExtraSignIn";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
   const {signIn} = useContext(AuthContext);
@@ -13,6 +14,9 @@ const SignIn = () => {
   const [showPassword, setShowPassWord] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [success, setSuccess] = useState(null);
+
+  const from = location.state?.from?.pathname || '/'
+  console.log('state in the location', location.state);
 
   const handleSignIn = e =>{
     e.preventDefault();
@@ -35,17 +39,25 @@ const SignIn = () => {
       .then(result =>{
         const loggedInUser = result.user;
         console.log(loggedInUser);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate(from, {replace: true});
         const user = {email};
         setSuccess('Created message Successfully');
   
         axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
         .then(res => {
-          console.log(res.data)
           if(res.data.success){
             navigate(location?.state ? location.state : '/');
           }
         })
       })
+
       .catch(error =>{
         console.error(error)
         setErrorMessage(error.message);

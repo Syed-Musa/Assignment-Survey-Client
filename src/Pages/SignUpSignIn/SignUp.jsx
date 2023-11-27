@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useState, useContext } from "react";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const {createUser} = useContext(AuthContext);
+  const { register, reset, formState: {errors} } = useForm();
   const [showPassword, setShowPassWord] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [success, setSuccess] = useState(null);
+  const navigate = useNavigate();
 
   const handleSignUp = e =>{
     e.preventDefault();
@@ -31,12 +36,23 @@ const SignUp = () => {
       createUser(email, password)
       .then(result => {
         console.log(result.user);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName
+        }
+        axiosPublic.post('/users', userInfo)
+          .then(res =>{
+            console.log(res.data);
+            navigate('/');
+        })
         setSuccess('Created message Successfully');
-      })
+        })
+      
       .catch(error =>{
         console.error(error);
         setErrorMessage(error.message)
       })
+      reset()
   }
 
   return (
@@ -58,11 +74,27 @@ const SignUp = () => {
                   </label>
                   <input
                     type="text"
+                    {...register('name', {required: true})}
                     name="name"
                     placeholder="name"
                     className="input input-bordered w-full"
                     required
                   />
+                  {errors.name && <span className="text-red-600 font-bold">Name is required</span>}
+                </div>
+
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+                  <input
+                    type="text"
+                    {...register('photoURL', {required: true})}
+                    placeholder="photoURL"
+                    className="input input-bordered"
+                    required
+                  />
+                  {errors.photoURL && <span className="text-red-600 font-bold">photoURL is required</span>}
                 </div>
 
                 <div className="form-control">
@@ -71,25 +103,29 @@ const SignUp = () => {
                   </label>
                   <input
                     type="email"
+                    {...register('email', {required: true})}
                     name="email"
                     placeholder="email"
                     className="input input-bordered w-full"
                     required
                   />
+                  {errors.email && <span className="text-red-600 font-bold">Email is required</span>}
                 </div>
 
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <div>
+                  <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
+                    {...register('password', {required: true})}
                     name="password"
                     placeholder="password"
                     className="input input-bordered w-full"
                     required
                   />
+                  {errors.password?.type === 'required' && <p className="text-red-600 font-bold">Password is required</p>}
                   </div>
                   <span className="absolute text-2xl top-[260px] right-10" onClick={()=>setShowPassWord(!showPassword)}>
                     {
@@ -106,7 +142,7 @@ const SignUp = () => {
                 <div className="form-control mt-6">
                   <button className="btn bg-orange-500 text-white italic uppercase">SignUp</button>
                 </div>
-                <p className='text-center'><small>New Here? <Link to='/signIn' className='text-blue-500 font-bold'>Go to SignIn</Link></small></p>
+                <p className='text-center'><small>New Here? <Link to='/login' className='text-blue-500 font-bold'>Go to SignIn</Link></small></p>
             </form>
             {
               errorMessage && <p className="text-red-600 italic font-bold mb-10 text-center">{errorMessage}</p>

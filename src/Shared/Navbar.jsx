@@ -14,7 +14,7 @@ const Navbar = () => {
     const navItems = <>
     <li className="font-bold uppercase italic"><Link to='/'>Home</Link></li>
     <li className="font-bold uppercase italic"><Link to='/survey'>Surveys</Link></li>
-    <li className="font-bold uppercase italic"><Link to='/'>Pricing</Link></li>
+    <li className="font-bold uppercase italic"><Link to='/pricing'>Pricing</Link></li>
     <li className="font-bold uppercase italic"><Link to='/Dashboard'>Dashboard</Link></li>
 
     </>
@@ -60,7 +60,7 @@ const Navbar = () => {
             <img className="w-4 lg:w-10 rounded-full mr-2" src={user?.photoURL} />
             <button onClick={handleLogOut} className="font-bold uppercase p-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white">Log Out</button>
             </> : <>
-            <li className="font-bold uppercase p-4 rounded-lg bg-gradient-to-r from-orange-500 to-orange-300 text-white"><Link to='signIn'>Login</Link></li>
+            <li className="font-bold uppercase p-4 rounded-lg bg-gradient-to-r from-orange-500 to-orange-300 text-white"><Link to='login'>Login</Link></li>
             </>
         }
         </div>

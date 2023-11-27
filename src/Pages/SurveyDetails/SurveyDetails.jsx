@@ -1,5 +1,5 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
@@ -22,7 +22,7 @@ const SurveyDetails = () => {
             </div>
 
             <div className="my-10">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     
                     <div>
                         <h2>Have you visited this destination?</h2>
@@ -44,11 +44,12 @@ const SurveyDetails = () => {
                             <option value="no">No</option>
                         </select>
                     </div>
-                    
-                  </form>
-                  <div className="mt-10 justify-end">
-                    <button className="btn bg-green-400 text-white uppercase font-bold italic">Submit</button>
-                  </div>
+
+                    <div className="mt-10 justify-end">
+                        <button className="btn bg-green-400 text-white uppercase font-bold italic">Submit</button>
+                    </div>
+                </form>
+                
             </div>
         </div>
         <Link to="/survey">
