@@ -16,6 +16,8 @@ const Navbar = () => {
     <li className="font-bold uppercase italic"><Link to='/survey'>Surveys</Link></li>
     <li className="font-bold uppercase italic"><Link to='/pricing'>Pricing</Link></li>
     <li className="font-bold uppercase italic"><Link to='/Dashboard'>Dashboard</Link></li>
+    <li className="font-bold uppercase italic"><Link to='/contactUs'>Contact Us</Link></li>
+    <li className="font-bold uppercase italic"><Link to='/aboutUs'>About Us</Link></li>
 
     </>
     

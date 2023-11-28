@@ -26,7 +26,8 @@ const SurveyCreation = () => {
             title: data?.title,
             Add_vote: data?.Add_vote,
             Add_vote2: data?.Add_vote,
-            description: data?.description
+            description: data?.description,
+            voted: data?.voted
         }
         const surveyResponse = await axiosSecure.post('/survey', surveyItem);
         console.log(surveyResponse.data);
@@ -84,9 +85,18 @@ const SurveyCreation = () => {
                     <textarea {...register('description', {required: true})} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
                 </div>
 
+                <div>
+                  <label className="label">
+                    <span className="label-text">Most Voted</span>
+                  </label>
+                  <input {...register('voted', {required: true})} type="number" className="border-2 border-gray-800" />
+                </div>
+
                 <div className="form-control w-full my-6">
                   <input {...register('image', {required: true})} type="file" className="file-input w-full max-w-xs font-bold" />
                 </div>
+
+                
 
                 <button className="btn bg-orange-500 font-bold uppercase italic text-white mt-2">Add Voted</button>
             </form>

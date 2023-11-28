@@ -9,11 +9,16 @@ import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../DashBoardPage/AllUsers";
 import SurveyCreation from "../DashBoardPage/SurveyCreation";
+import UserHome from "../DashBoardPage/UserHome";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -27,6 +32,14 @@ export const router = createBrowserRouter([
             path: '/survey/:id',
             element: <SurveyDetails></SurveyDetails>,
             loader: ({params})=> fetch(`http://localhost:5000/survey/${params.id}`)
+        },
+        {
+            path: '/contactUs',
+            element: <ContactUs></ContactUs>
+        },
+        {
+            path: '/aboutUs',
+            element: <AboutUs></AboutUs>
         },
         {
             path: '/login',
@@ -43,6 +56,10 @@ export const router = createBrowserRouter([
         path: "/Dashboard",
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            {
+                path: 'userhome',
+                element: <UserHome></UserHome>
+            },
             {
                 path: 'users',
                 element: <AllUsers></AllUsers>

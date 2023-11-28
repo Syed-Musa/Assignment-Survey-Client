@@ -5,6 +5,7 @@ import useAdmin from "../Hooks/useAdmin";
 const Dashboard = () => {
 
     const [isAdmin] = useAdmin();
+    console.log(isAdmin)
 
     return (
         <div className="flex">
@@ -17,8 +18,8 @@ const Dashboard = () => {
                             <li className="font-bold uppercase my-4 italic text-white bg-gray-700 rounded-lg"><NavLink to='/Dashboard/users'>All Users</NavLink></li>
                         </> :
                         <>
-                            <li className="font-bold uppercase italic text-white"><NavLink>User Home</NavLink></li>
-                            <li className="font-bold my-4 uppercase italic text-white"><NavLink to='/Dashboard/surveyCreation'>Survey Creation</NavLink></li>
+                            <li className="font-bold bg-gray-700 rounded-lg uppercase italic text-white"><NavLink to='/Dashboard/userhome'>User Home</NavLink></li>
+                            <li className="font-bold bg-gray-700 rounded-lg my-4 uppercase italic text-white"><NavLink to='/Dashboard/surveyCreation'>Survey Creation</NavLink></li>
                             
                         </>
                     }
