@@ -5,6 +5,7 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import ExtraSignIn from "./ExtraSignIn";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -33,13 +34,14 @@ const SignUp = () => {
         return;
       }
 
-      createUser(email, password)
+      createUser( email, password)
       .then(result => {
         console.log(result.user);
         const userInfo = {
           email: result.user?.email,
-          name: result.user?.displayName
+          // name: result.user?.displayName
         }
+        console.log(userInfo)
         axiosPublic.post('/users', userInfo)
           .then(res =>{
             console.log(res.data);
@@ -63,12 +65,12 @@ const SignUp = () => {
       <div className="hero bg-base-200">
         <div className="hero-content flex-col">
             <div className="text-center">
-              <h1 className="text-5xl font-bold">Sign Up</h1>
+              <h1 className="text-5xl font-bold uppercase italic text-orange-600">Sign Up</h1>
               
             </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSignUp} className="card-body">
-                <div className="form-control">
+                <div className="form-control w-80">
                   <label className="label">
                     <span className="label-text">Name</span>
                   </label>
@@ -143,6 +145,7 @@ const SignUp = () => {
                   <button className="btn bg-orange-500 text-white italic uppercase">SignUp</button>
                 </div>
                 <p className='text-center'><small>New Here? <Link to='/login' className='text-blue-500 font-bold'>Go to SignIn</Link></small></p>
+                <ExtraSignIn></ExtraSignIn>
             </form>
             {
               errorMessage && <p className="text-red-600 italic font-bold mb-10 text-center">{errorMessage}</p>

@@ -8,6 +8,7 @@ import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../DashBoardPage/AllUsers";
+import SurveyCreation from "../DashBoardPage/SurveyCreation";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <AllUsers></AllUsers>
+            },
+            {
+                path: 'surveyCreation',
+                element: <SurveyCreation></SurveyCreation>
             }
         ]
     }
