@@ -12,7 +12,7 @@ const AboutUs = () => {
         </div>
 
         <div className="mt-10">
-            <h2 className="text-5xl font-bold">Company Name: <span className="font-bold uppercase italic">SurveyPolling</span></h2>
+            <h2 className="text-5xl font-bold">Company Name: <span className="font-bold uppercase italic text-orange-600">SurveyPolling</span></h2>
 
             <div className="my-10">
                 <h2 className="text-3xl font-bold uppercase italic">Mission Statement:</h2>

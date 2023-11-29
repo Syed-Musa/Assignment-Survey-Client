@@ -53,7 +53,7 @@ const SurveyCreation = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full my-5">
                     <label className="label">
-                      <span className="label-text">Title</span>
+                      <span className="label-text font-bold italic">Title</span>
                     </label>
                     <input 
                     type="text" 
@@ -65,31 +65,31 @@ const SurveyCreation = () => {
 
                 <div className="flex gap-4">
                     <select defaultValue="default" {...register('Add_vote', {required: true})} className="select select-bordered w-full">
-                        <option disabled value="default">Have you visited this destination?</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option disabled value="default" >Have you visited this destination?</option>
+                        <option className="font-bold" value="yes">Yes</option>
+                        <option className="font-bold" value="no">No</option>
                     </select>
 
                     <select {...register('Add_vote2', {required: true})} className="select select-bordered w-full">
-                        <option disabled selected>Would you recommends it to others?</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option disabled selected >Would you recommends it to others?</option>
+                        <option className="font-bold" value="yes">Yes</option>
+                        <option className="font-bold" value="no">No</option>
                     </select>
                 </div>
 
 
                 <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Description</span>
+                      <span className="label-text font-bold italic">Description</span>
                     </label>
                     <textarea {...register('description', {required: true})} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
                 </div>
 
                 <div>
                   <label className="label">
-                    <span className="label-text">Most Voted</span>
+                    <span className="label-text font-bold italic">Most Voted</span>
                   </label>
-                  <input {...register('voted', {required: true})} type="number" className="border-2 border-gray-800" />
+                  <input {...register('voted', {required: true})} type="number" className="border-2 border-gray-800 p-3 text-xl" />
                 </div>
 
                 <div className="form-control w-full my-6">

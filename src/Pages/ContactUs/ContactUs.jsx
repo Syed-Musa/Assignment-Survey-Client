@@ -1,4 +1,5 @@
-import { FaLocationArrow } from "react-icons/fa";
+import { FaLocationArrow, FaPhone } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const ContactUs = () => {
   return (
@@ -10,6 +11,24 @@ const ContactUs = () => {
               <h1 className="mb-5 text-5xl font-bold uppercase italic">Contact Us</h1>
             </div>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 my-10">
+            <div className="border-2 ">  
+                <FaPhone className="bg-orange-600 text-white w-full h-10"></FaPhone>
+                <div className="p-10 bg-gray-300">
+                    <h2 className="text-3xl font-bold uppercase italic mb-2">Phone</h2>
+                    <p className="text-xl font-bold">+38 (012) 34 56 789</p>
+                </div>
+            </div>
+    
+            <div className="border-2 ">  
+                <SiGmail className="bg-orange-600 text-white w-full h-10"></SiGmail>
+                <div className="p-10 bg-gray-300">
+                    <h2 className="text-3xl font-bold uppercase italic mb-2">Gmail</h2>
+                    <p className="text-xl font-bold">abc123@gmail.com</p>
+                </div>
+            </div>
         </div>
 
         <div>

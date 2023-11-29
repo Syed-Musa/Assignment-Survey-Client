@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
 import {Link} from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
 
     const handleLogOut = () =>{
       logOut()
@@ -15,7 +17,13 @@ const Navbar = () => {
     <li className="font-bold uppercase italic"><Link to='/'>Home</Link></li>
     <li className="font-bold uppercase italic"><Link to='/survey'>Surveys</Link></li>
     <li className="font-bold uppercase italic"><Link to='/pricing'>Pricing</Link></li>
-    <li className="font-bold uppercase italic"><Link to='/Dashboard'>Dashboard</Link></li>
+    {/* <li className="font-bold uppercase italic"><Link to='/Dashboard'>Dashboard</Link></li> */}
+    {
+      user && isAdmin && <li className="font-bold uppercase"><Link to='/Dashboard/adminhome'>Dashboard</Link></li>
+    }
+    {
+      user && !isAdmin && <li className="font-bold uppercase"><Link to='/Dashboard/userhome'>Dashboard</Link></li>
+    }
     <li className="font-bold uppercase italic"><Link to='/contactUs'>Contact Us</Link></li>
     <li className="font-bold uppercase italic"><Link to='/aboutUs'>About Us</Link></li>
 

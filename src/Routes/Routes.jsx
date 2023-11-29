@@ -13,6 +13,11 @@ import UserHome from "../DashBoardPage/UserHome";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import AdminRoute from "./AdminRoute";
+import ManageSurvey from "../DashBoardPage/ManageSurvey";
+import UpdateVoted from "../DashBoardPage/UpdateVoted";
+import Pricing from "../Pages/Pricing/Pricing";
+import AdminHome from "../DashBoardPage/AdminHome";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +37,10 @@ export const router = createBrowserRouter([
             path: '/survey/:id',
             element: <SurveyDetails></SurveyDetails>,
             loader: ({params})=> fetch(`http://localhost:5000/survey/${params.id}`)
+        },
+        {
+            path: '/pricing',
+            element: <Pricing></Pricing>
         },
         {
             path: '/contactUs',
@@ -60,6 +69,11 @@ export const router = createBrowserRouter([
                 path: 'userhome',
                 element: <UserHome></UserHome>
             },
+
+            {
+                path: 'adminhome',
+                element: <AdminHome></AdminHome>
+            },
             {
                 path: 'users',
                 element: <AllUsers></AllUsers>
@@ -67,6 +81,15 @@ export const router = createBrowserRouter([
             {
                 path: 'surveyCreation',
                 element: <SurveyCreation></SurveyCreation>
+            },
+            {
+                path: 'manageSurvey',
+                element:<ManageSurvey></ManageSurvey>
+            },
+            {
+                path: 'updateVoted/:id',
+                element: <UpdateVoted></UpdateVoted>,
+                loader: ({params}) => fetch(`http://localhost:5000/survey/${params.id}`)
             }
         ]
     }
