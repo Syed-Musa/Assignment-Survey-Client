@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
   return (
     <div>
+      <Helmet>
+        <title>SURVEYPOLLING | ABOUT US</title>
+      </Helmet>
         <div className="hero bg-[url('https://i.ibb.co/DWCLGD9/altumcode-d-C6-Pb2-Jd-Aqs-unsplash.jpg')] h-[500px] bg-cover">
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content">

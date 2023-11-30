@@ -28,7 +28,7 @@ const ExtraSignIn = () => {
         <div>
             <div className="divider"></div>
             <h2 className="text-2xl text-gray-700 font-bold my-5 text-center">Continue With</h2>
-            <button onClick={handleGoogleSignIn} className='btn btn-outline bg-gray-600 text-white w-full text-[15px] font-bold my-2'>
+            <button onClick={handleGoogleSignIn} className='btn btn-outline bg-orange-500 text-white w-full text-[15px] font-bold my-2'>
             <FaGoogle className='text-xl text-white '></FaGoogle>Google Login
             </button>
         </div>

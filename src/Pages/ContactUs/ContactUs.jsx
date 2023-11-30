@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { FaLocationArrow, FaPhone } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 
 const ContactUs = () => {
   return (
     <div className="">
+      <Helmet>
+        <title>SURVEYPOLLING | CONTACT US</title>
+      </Helmet>
         <div className="hero bg-[url('https://i.ibb.co/DWCLGD9/altumcode-d-C6-Pb2-Jd-Aqs-unsplash.jpg')] h-[500px] bg-cover">
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content">

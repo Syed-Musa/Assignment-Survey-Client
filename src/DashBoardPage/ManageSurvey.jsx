@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { FaUsers } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useSurvey from "../Hooks/useSurvey";
+// import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ManageSurvey = () => {
-  const [survey, setSurvey] = useState([]);
+  const [survey, ,] = useSurvey();
+  // const axiosSecure = useAxiosSecure();
+  // const [survey, setSurvey] = useState([]);
 
-  useEffect(()=>{
-    fetch('http://localhost:5000/survey')
-    .then(res => res.json())
-    .then(data => setSurvey(data))
-  }, [])
+  // useEffect(()=>{
+  //   fetch('http://localhost:5000/survey')
+  //   .then(res => res.json())
+  //   .then(data => setSurvey(data))
+  // }, [])
 
   return (
     <div>

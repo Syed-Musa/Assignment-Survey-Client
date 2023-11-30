@@ -39,7 +39,7 @@ const SignUp = () => {
         console.log(result.user);
         const userInfo = {
           email: result.user?.email,
-          // name: result.user?.displayName
+          name: result.user?.displayName
         }
         console.log(userInfo)
         axiosPublic.post('/users', userInfo)
@@ -62,13 +62,13 @@ const SignUp = () => {
       <Helmet>
         <title>SURVEYPOLLING | SIGN UP</title>
       </Helmet>
-      <div className="hero bg-base-200">
+      <div className="hero bg-orange-300">
         <div className="hero-content flex-col">
             <div className="text-center">
               <h1 className="text-5xl font-bold uppercase italic text-orange-600">Sign Up</h1>
               
             </div>
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-orange-300 to-orange-200">
             <form onSubmit={handleSignUp} className="card-body">
                 <div className="form-control w-80">
                   <label className="label">

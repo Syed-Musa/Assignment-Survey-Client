@@ -76,7 +76,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'users',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: 'surveyCreation',
