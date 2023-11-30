@@ -7,7 +7,7 @@ const Survey = () => {
     console.log(survey)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/survey')
+        fetch('https://assignment-survey-resource-server.vercel.app/survey')
         .then(res => res.json())
         .then(data => setSurvey(data))
     }, [])

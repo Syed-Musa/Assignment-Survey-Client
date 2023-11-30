@@ -6,7 +6,7 @@ const FSurvey = () => {
     const [featuredSurvey, setFeaturedSurvey] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/FeaturedSurvey')
+        fetch('https://assignment-survey-resource-server.vercel.app/FeaturedSurvey')
         .then(res => res.json())
         .then(data => setFeaturedSurvey(data))
     }, [])

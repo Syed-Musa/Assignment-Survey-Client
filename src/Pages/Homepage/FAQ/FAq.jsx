@@ -6,7 +6,7 @@ const FAq = () => {
     const [faq, setfaq] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/faq')
+        fetch('https://assignment-survey-resource-server.vercel.app/faq')
         .then(res => res.json())
         .then(data => setfaq(data))
     }, [])

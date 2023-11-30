@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         {
             path: '/survey/:id',
             element: <SurveyDetails></SurveyDetails>,
-            loader: ({params})=> fetch(`http://localhost:5000/survey/${params.id}`)
+            loader: ({params})=> fetch(`https://assignment-survey-resource-server.vercel.app/survey/${params.id}`)
         },
         {
             path: '/pricing',
@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
             {
                 path: 'updateVoted/:id',
                 element: <UpdateVoted></UpdateVoted>,
-                loader: ({params}) => fetch(`http://localhost:5000/survey/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-survey-resource-server.vercel.app/survey/${params.id}`)
             }
         ]
     }

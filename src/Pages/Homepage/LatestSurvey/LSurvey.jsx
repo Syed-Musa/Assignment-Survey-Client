@@ -6,7 +6,7 @@ const LSurvey = () => {
     const [latestSurvey, setLatestSurvey] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/LatestSurvey')
+        fetch('https://assignment-survey-resource-server.vercel.app/LatestSurvey')
         .then(res => res.json())
         .then(data => setLatestSurvey(data))
     }, [])

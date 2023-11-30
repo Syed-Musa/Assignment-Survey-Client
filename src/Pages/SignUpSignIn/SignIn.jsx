@@ -56,7 +56,7 @@ const SignIn = () => {
         const user = {email};
         setSuccess('Created message Successfully');
   
-        axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+        axios.post('https://assignment-survey-resource-server.vercel.app/jwt', user, {withCredentials: true})
         .then(res => {
           if(res.data.success){
             navigate(location?.state ? location.state : '/');
